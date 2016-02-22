@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Psychic Game</title>
+</head>
+<body>
+
+<div id="game">
+    <p>Guess a letter to start playing</p>
+    <p id="wins">Wins: 0</p>
+    <p id="losses">Losses: 0</p>
+    <p id="guessesLeft"> Guesses Left: 9 </p>
+    <p id="guessCount"> Guess Count: 0</p>
+    <p id="userGuesses">User Guesses:</p>
+</div>
+
+<script type="text/javascript">
+
+var listOfLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+var wins = 0;
+var losses = 0;
+var computerGuess = listOfLetters[Math.floor(Math.random() * listOfLetters.length)];
+var userGuesses = [];
+// var guessCount = userGuesses.length;
+var guessesLeft = 9
+// var guessesLeft = (9 - guessCount);
+// function guessLength(userGuesses.length){
+//     if () {};
+// }
+
+// function remainingGuess(guessesLeft - guessCount)
+
+document.onkeyup = function(event) {
+    var userGuess = String. fromCharCode(event.keyCode).toLowerCase();
+    userGuesses.push(userGuess);
+
+    document.querySelector('#userGuesses').innerHTML = "User Guesses: " + userGuesses.join(', ');
+
+    // var guessesLeft = function([9 - userGuesses.length);
+
+
+    if (userGuess == computerGuess){
+        wins++;
+        var guessCount = 0
+        document.querySelector('#wins').innerHTML = "Wins: " + wins;
+        document.querySelector('#guessCount').innerHTML = "Guess Count:"
+        alert("You won!");
+        guessCount = userGuesses.length;
+         + guessCount;
+
+    // if (userGuess != computerGuess) I couldn not get else to work, so i tried using another equation. commented it all out. 
+        // }
+    // if (userGuess != computerGuess) && (guessesLeft = 0){
+    //     losses++;
+    //     alert("Sorry, you're out of guesses! Computer wins!");
+    //     guessCount = 0
+    //      document.querySelector('#guessCount').innerHTML = "Guess Count:" + guessCount;
+    //     guessesLeft = 9 <---- wanted to use all this to kind of make a reset if you ran out of guesses left. but clearly I am doing something wrong because I am not sure what to do.
+
+    }else{
+            guessesLeft--;
+            guesscount = userGuesses.length
+            document.querySelector('#guessCount').innerHTML = "Guess Count:" + guessCount;
+
+        }
+    }
+    
+
+    // if (userGuess == computerGuess){
+    //     wins++;
+    //     document.querySelector('#wins').innerHTML = "Wins: " + wins;
+    //     alert("You won!");
+    //     document.querySelector('#guessCount').innerHTML = "Guess Count:0";
+    //      document.querySelector('#userGuesses').innerHTML = " ";
+    // }else{
+    //     guessCount++;
+    //     document.querySelector('#guessCount').innerHTML = "Guess Count: " + guessCount;
+    //     var guessesLeft = 9 - guessCount --;
+    //     document.querySelector('#guessesLeft').innerHTML = "Guesses Left: " + guessesLeft;
+    // }
+
+
+//var giraffe = "<p>Press r, p or s to start playing</p>" + "<p>wins: " + wins + "</p>" + "<p>losses: " + losses + "</p>" + "<p>ties: " + ties + "</p>" + "<p>" + "Computer guessed: " + computerGuess + "</p>"; 
+
+//document.querySelector('#game').innerHTML = giraffe;
+
+</script>
+</body>
+</html>

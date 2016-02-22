@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Psychic Game</title>
+</head>
+<body>
+
+<div id="game">
+    <p>Guess a letter to start playing</p>
+    <p id="wins">Wins: 0</p>
+    <p id="losses">Losses: 0</p>
+    <P id="leftGuesses"> Guesses Left: 9 </p>
+    <p id="guessedLetters">User Guesses:</p>
+</div>
+
+<script type="text/javascript">
+
+var listOfLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+var wins = 0;
+var losses = 0;
+var guessesLeft = 9;
+var computerGuess = listOfLetters[Math.floor(Math.random() * listOfLetters.length)];
+var userGuesses = [];
+
+document.onkeyup = function(event) {
+    var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+    userGuesses.push(userGuess);
+
+    document.querySelector('#guessedLetters').innerHTML = "User Guesses: " + userGuesses.join(', ');
+
+    if (userGuess == computerGuess){
+        wins++;
+        alert(wins);
+        document.querySelector('#wins').innerHTML = "wins: " + wins;
+    }else{
+        userGuesses++;
+        guessesLeft = (9-guessCount);
+        document.querySelector('#leftGuesses').innerHTML = "Guesses left: " + guessesLeft.join(' ');
+    }
+}
+//var giraffe = "<p>Press r, p or s to start playing</p>" + "<p>wins: " + wins + "</p>" + "<p>losses: " + losses + "</p>" + "<p>ties: " + ties + "</p>" + "<p>" + "Computer guessed: " + computerGuess + "</p>"; 
+
+//document.querySelector('#game').innerHTML = giraffe;
+
+</script>
+</body>
+</html>

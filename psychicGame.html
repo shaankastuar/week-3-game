@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Psychic Game</title>
+</head>
+<body>
+
+<div id="game">
+    <p>Guess a letter to start playing</p>
+    <p id="wins">Wins: 0</p>
+    <p id="losses">Losses: 0</p>
+    <p id="userGuesses">User Guesses:</p>
+</div>
+
+<script type="text/javascript">
+
+//var listOfLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+
+var listOfletters = ["a", "b"];
+var wins = 0;
+var losses = 0;
+var guessesLeft = 9;
+var compGuess = listOfletters[Math.floor(Math.random() * listOfletters.length)];
+
+document.onkeyup = function(event){
+		var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+		// userGuesses.push(userGuess);
+		// document.querySelector('#userGuesses').innerHTML = "User Guesses:" + userGuesses.join(',  ');
+
+		// this piece of code is basically taking the letter you input and assigning it a numerical value. string.fromCharcode then converst that to a letter. to.lower case then makes it lower case.
+
+if (userGuess == compGuess){
+		wins++;
+		alert(wins);
+		document.querySelector('#wins').innerHTML = "wins: " + wins;
+	}else{
+		losses++;
+		document.querySelector('#losses').innerHTML = "losses: " + losses;
+	}
+}
+
+// alert(userGuess == compGuess); 
+// // this is going to alert a true or false, not the value
+</script>
+</body>
+</html>
